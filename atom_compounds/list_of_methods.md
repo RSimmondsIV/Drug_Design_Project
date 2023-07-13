@@ -13,6 +13,6 @@ From RDKit
     * Morgan Fingerprints
     * Daylight-Like Fingerprints
     * Atom Pair Fingerprints
-    * MACCS Kets
+    * MACCS Keys
     * Morgan Feat-Morgan Fingerprints
     * RDKit Descriptors 

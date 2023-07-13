@@ -11,19 +11,16 @@ def smiles_to_fingerprint(smiles):
     fingerprint = np.array(fingerprint)
     return fingerprint
 
-file = open(file='/home/Robbie/Desktop/Drug_Design_Project/' +\
-            'Drug_Design_Project/atom_compounds/' +\
+file = open(file='atom_compounds/' +\
             'compound_ex.txt')
 
-file2=open('/home/Robbie/Desktop/Drug_Design_Project/' +\
-            'Drug_Design_Project/atom_compounds/' +\
+file2=open('atom_compounds/' +\
             'morgan_fingerprint/' +\
             'morgan_fingerprint_output.txt', 'w')
 
 file2.close()
 
-file2=open('/home/Robbie/Desktop/Drug_Design_Project/' +\
-            'Drug_Design_Project/atom_compounds/' +\
+file2=open('atom_compounds/' +\
             'morgan_fingerprint/' +\
             'morgan_fingerprint_output.txt', 'a')
 

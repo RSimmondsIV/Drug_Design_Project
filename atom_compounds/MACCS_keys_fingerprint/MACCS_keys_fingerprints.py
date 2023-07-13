@@ -1,26 +1,30 @@
 import numpy as np
+import sys
 from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit.Chem import Draw
+from rdkit.Chem import rdFingerprintGenerator
+from rdkit.Chem import MACCSkeys
+np.set_printoptions(threshold=sys.maxsize)
 
 def smiles_to_fingerprint(smiles):
     molecule = Chem.MolFromSmiles(smiles)
-    fingerprint = AllChem.GetHashedTopologicalTorsionFingerprintAsBitVect(molecule)
-    fingerprint = np.array(fingerprint)
-    return fingerprint
+    fingerprint = MACCSkeys.GenMACCSKeys(molecule)
+    np_array = fingerprint.ToBitString()
+    return np_array
 
 file = open(file='atom_compounds/' +\
             'compound_ex.txt')
 
 file2=open('atom_compounds/' +\
-            'topological_torsion/' +\
-            'topological_torsion_output.txt', 'w')
+            'MACCS_keys_fingerprint/' +\
+            'MACCS_keys_fingerprint_output.txt', 'w')
 
 file2.close()
 
 file2=open('atom_compounds/' +\
-            'topological_torsion/' +\
-            'topological_torsion_output.txt', 'a')
+            'MACCS_keys_fingerprint/' +\
+            'MACCS_keys_fingerprint_output.txt', 'a')
 
 for i in file:
     print(i)
