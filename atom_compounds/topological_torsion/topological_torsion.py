@@ -5,7 +5,7 @@ from rdkit.Chem import Draw
 
 def smiles_to_fingerprint(smiles):
     molecule = Chem.MolFromSmiles(smiles)
-    fingerprint = AllChem.GetMorganFingerprintAsBitVect(molecule, 2, nBits=1024)
+    fingerprint = AllChem.GetHashedTopologicalTorsionFingerprintAsBitVect(molecule)
     fingerprint = np.array(fingerprint)
     return fingerprint
 
@@ -15,15 +15,15 @@ file = open(file='/home/Robbie/Desktop/Drug_Design_Project/' +\
 
 file2=open('/home/Robbie/Desktop/Drug_Design_Project/' +\
             'Drug_Design_Project/atom_compounds/' +\
-            'morgan_fingerprint/' +\
-            'morgan_fingerprint_output.txt', 'w')
+            'topological_torsion/' +\
+            'topological_torsion_output.txt', 'w')
 
 file2.close()
 
 file2=open('/home/Robbie/Desktop/Drug_Design_Project/' +\
             'Drug_Design_Project/atom_compounds/' +\
-            'morgan_fingerprint/' +\
-            'morgan_fingerprint_output.txt', 'a')
+            'topological_torsion/' +\
+            'topological_torsion_output.txt', 'a')
 
 for i in file:
     print(i)
