@@ -17,3 +17,5 @@ smiles = 'CC(=O)OC1=CC=CC=C1C(=O)O'
 
 one_hot_vector = one_hot_encode_molecule(smiles)
 print(one_hot_vector)
+
+#lowkey idk if this is right
