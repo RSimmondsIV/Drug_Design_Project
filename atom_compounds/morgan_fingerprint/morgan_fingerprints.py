@@ -1,7 +1,9 @@
 import numpy as np
+import sys
 from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit.Chem import Draw
+np.set_printoptions(threshold=sys.maxsize)
 
 def smiles_to_fingerprint(smiles):
     molecule = Chem.MolFromSmiles(smiles)
