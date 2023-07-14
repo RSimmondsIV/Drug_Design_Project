@@ -16,7 +16,7 @@ if __name__ == '__main__':
     np.set_printoptions(threshold=sys.maxsize)
 
     file = open(file='atom_compounds/' +\
-            'compound_ex.txt')
+            'compound_list.txt')
 
     file2=open('atom_compounds/' +\
             'morgan_fingerprint/' +\

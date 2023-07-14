@@ -17,7 +17,7 @@ def get_descripors(smile):
     return descriptors
 
 file = open(file='atom_compounds/' +\
-            'compound_ex.txt')
+            'compound_list.txt')
 
 file2=open('atom_compounds/' +\
             'RDKit_descriptors/' +\
