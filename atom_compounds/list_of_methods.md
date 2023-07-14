@@ -11,8 +11,7 @@ Standard Encoding Methods:
 
 From RDKit
     * Morgan Fingerprints
-    * Daylight-Like Fingerprints
+    * Topological Torsion Fingerprints
     * Atom Pair Fingerprints
-    * MACCS Keys
-    * Morgan Feat-Morgan Fingerprints
+    * MACCS Keys 
     * RDKit Descriptors 

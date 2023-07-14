@@ -6,7 +6,7 @@ from rdkit.Chem import Descriptors
 # Create an RDKit molecule object from the SMILES string
 
 
-def calculate(smile):
+def get_descripors(smile):
 # Calculate RDKit descriptors
     mol = Chem.MolFromSmiles(smile)
     descriptors = []
@@ -32,5 +32,5 @@ for i in file:
     print(i)
     # a = Draw.MolToImage(Chem.MolFromSmiles(str(i)))
     # a.show()
-    fingerprint = calculate(i)
-    print(fingerprint, '\n', file=file2)
+    descriptor = get_descripors(i)
+    print(descriptor, '\n', file=file2)
