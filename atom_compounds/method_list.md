@@ -1,5 +1,5 @@
 Standard Encoding Methods:
-    * one-hot - [x]
+* one-hot - [x]
     * label - []
     * binary - []
     * count - []
@@ -9,8 +9,8 @@ Standard Encoding Methods:
     * original - [] 
     * frequency - []
 
-From RDKit
-    * Morgan Fingerprints - [x]
+From RDKit:
+* Morgan Fingerprints - [x]
     * Topological Torsion Fingerprints - [x]
     * Atom Pair Fingerprints - [x]
     * MACCS Keys - [x]
