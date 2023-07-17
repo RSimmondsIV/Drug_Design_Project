@@ -8,7 +8,7 @@ import numpy as np
 import sys
 np.set_printoptions(threshold=sys.maxsize)
 
-SMILES = "N#N"
+SMILES = "CCO"
 
 atom_pair = ap(SMILES)
 MACCS = mk(SMILES)
