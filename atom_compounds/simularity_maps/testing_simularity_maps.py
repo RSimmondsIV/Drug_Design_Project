@@ -18,23 +18,4 @@ fp = SimilarityMaps.GetMorganFingerprint(mol, fpType='bv')
 
 fig, maxweight = SimilarityMaps.GetSimilarityMapForFingerprint(refmol, mol, SimilarityMaps.GetMorganFingerprint)
 
-file = open(file='atom_compounds/' +\
-            'compound_list.txt')
-
-comps = []
-for i in file:
-    comps.append(i)
-
-for i in range(len(comps)):
-    plt.figure(i)
-    fig, maxweight = SimilarityMaps.GetSimilarityMapForFingerprint(comps[i], comps[i], SimilarityMaps.GetMorganFingerprint)
-
 plt.show()
-
-#TODO Fix Unknown Error - rdkit.Chem.rdMolDescriptors.GetMorganFingerprintAsBitVect(str, int)
-"""
-did not match C++ signature: GetMorganFingerprintAsBitVect(RDKit::ROMol mol, unsigned int radius, 
-unsigned int nBits=2048, boost::python::api::object invariants=[], boost::python::api::object fromAtoms=[], 
-bool useChirality=False, bool useBondTypes=True, bool useFeatures=False, boost::python::api::object bitInfo=None, 
-bool includeRedundantEnvironments=False)
-"""
