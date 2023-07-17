@@ -2,3 +2,5 @@ python/
 python3/
 .venv/
 *__pycache__
+/home/Robbie/Desktop/Drug_Design_Project/Data_Files/Acute_Toxicity_mouse_LD50.csv
+/home/Robbie/Desktop/Drug_Design_Project/Data_Files/PubChem_compound_list.csv
