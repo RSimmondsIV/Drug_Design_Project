@@ -1,3 +1,4 @@
 python/
 python3/
 .venv/
+*__pycache__
