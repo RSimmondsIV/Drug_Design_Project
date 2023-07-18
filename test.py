@@ -4,6 +4,7 @@ from rdkit.Chem import AllChem
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
+import pandas as pd 
 
 # Example dataset with SMILES and corresponding labels
 smiles = ['CCO', 'CCC', 'CCN', 'CNC', 'CN']
@@ -28,3 +29,13 @@ y_pred = svm.predict(X_test)
 # Evaluate model performance
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {accuracy}")
+
+data = {
+    'Column1': [1, 2, 3],
+    'Column2': [4, 5, 6],
+    'Column3': [7, 8, 9]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
