@@ -16,22 +16,23 @@ def get_descripors(smile):
         descriptors.append(descriptor_value)
     return descriptors
 
-file = open(file='atom_compounds/' +\
-            'compound_list.txt')
+if __name__ == '__main__':
+    file = open(file='atom_compounds/' +\
+                'compound_list.txt')
 
-file2=open('atom_compounds/' +\
-            'RDKit_descriptors/' +\
-            'RDKit_descriptors_output.txt', 'w')
+    file2=open('atom_compounds/' +\
+                'RDKit_descriptors/' +\
+                'RDKit_descriptors_output.txt', 'w')
 
-file2.close()
+    file2.close()
 
-file2=open('atom_compounds/' +\
-            'RDKit_descriptors/' +\
-            'RDKit_descriptors_output.txt', 'a')
+    file2=open('atom_compounds/' +\
+                'RDKit_descriptors/' +\
+                'RDKit_descriptors_output.txt', 'a')
 
-for i in file:
-    print(i)
-    # a = Draw.MolToImage(Chem.MolFromSmiles(str(i)))
-    # a.show()
-    descriptor = get_descripors(i)
-    print(descriptor, '\n', file=file2)
+    for i in file:
+        print(i)
+        # a = Draw.MolToImage(Chem.MolFromSmiles(str(i)))
+        # a.show()
+        descriptor = get_descripors(i)
+        print(descriptor, '\n', file=file2)

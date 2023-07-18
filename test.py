@@ -1,17 +1,30 @@
+import numpy as np
 from rdkit import Chem
-from rdkit.Chem import rdFingerprintGenerator
+from rdkit.Chem import AllChem
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score
 
-# Create a molecule object
-mol = Chem.MolFromSmiles('CCO')
+# Example dataset with SMILES and corresponding labels
+smiles = ['CCO', 'CCC', 'CCN', 'CNC', 'CN']
+labels = [0, 0, 0, 1, 1]
 
-# Create the atom pair fingerprint generator
-generator = rdFingerprintGenerator.GetAtomPairGenerator()
+# Parse SMILES and generate molecular fingerprints
+mols = [Chem.MolFromSmiles(smi) for smi in smiles]
+fps = [AllChem.GetMorganFingerprintAsBitVect(mol, 2) for mol in mols]
+X = np.array(fps)  # Feature matrix
+y = np.array(labels)  # Labels
 
-# Generate the atom pair fingerprint
-fingerprint = generator.GetFingerprint(mol)
+# Split data into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Get the atom pair fingerprint as a bit vector
-bit_vector = fingerprint.ToBitString()
+# Train SVM model
+svm = SVC()
+svm.fit(X_train, y_train)
 
-# Print the atom pair fingerprint
-print(bit_vector)
+# Predict on test data
+y_pred = svm.predict(X_test)
+
+# Evaluate model performance
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy}")
