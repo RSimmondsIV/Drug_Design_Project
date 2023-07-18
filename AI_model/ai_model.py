@@ -17,10 +17,10 @@ X = df.drop(
      "Unnamed: 0"], axis=1)
 
 file=open('AI_model/' +\
-            "AI_ouput.txt", 'a')
+            "AI_ouput.csv", 'a')
 
 
-
+dfs = []
 for i in X.columns:
     
     X_train, X_test, y_train, y_test = train_test_split(X[i], y, test_size=0.2, random_state=100)
@@ -60,6 +60,12 @@ for i in X.columns:
     }
 
     lr_results = pd.DataFrame(data)
+    dfs.append(lr_results)
 
-    lr_results.to_csv(file, index=False, header=False)
+first_df = pd.DataFrame()
+for i in dfs:
+    first_df = pd.concat([first_df, i], ignore_index=True)
+final_df = pd.concat(first_df)
+first_df.to_csv(file,index=False)
+   
    

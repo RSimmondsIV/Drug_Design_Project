@@ -1,41 +1,27 @@
 import numpy as np
-from rdkit import Chem
-from rdkit.Chem import AllChem
-from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score
-import pandas as pd 
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
 
-# Example dataset with SMILES and corresponding labels
-smiles = ['CCO', 'CCC', 'CCN', 'CNC', 'CN']
-labels = [0, 0, 0, 1, 1]
+# Sample data
+X = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)  # Input features (independent variable)
+y = np.array([2, 4, 6, 8, 10])  # Target variable (dependent variable)
 
-# Parse SMILES and generate molecular fingerprints
-mols = [Chem.MolFromSmiles(smi) for smi in smiles]
-fps = [AllChem.GetMorganFingerprintAsBitVect(mol, 2) for mol in mols]
-X = np.array(fps)  # Feature matrix
-y = np.array(labels)  # Labels
+# Create a linear regression model
+model = LinearRegression()
 
-# Split data into train and test sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Fit the model to the data
+model.fit(X, y)
 
-# Train SVM model
-svm = SVC()
-svm.fit(X_train, y_train)
+# Make predictions
+y_pred = model.predict(X)
 
-# Predict on test data
-y_pred = svm.predict(X_test)
+# Model evaluation
+mse = mean_squared_error(y, y_pred)
+r2 = r2_score(y, y_pred)
 
-# Evaluate model performance
-accuracy = accuracy_score(y_test, y_pred)
-print(f"Accuracy: {accuracy}")
-
-data = {
-    'Column1': [1, 2, 3],
-    'Column2': [4, 5, 6],
-    'Column3': [7, 8, 9]
-}
-
-df = pd.DataFrame(data)
-
-print(df)
+# Print the model coefficients, MSE, and R2 score
+print("Coefficients:", model.coef_)
+print("Intercept:", model.intercept_)
+print("Mean Squared Error:", mse)
+print("R2 Score:", r2)
